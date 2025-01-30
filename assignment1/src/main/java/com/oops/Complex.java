@@ -2,70 +2,77 @@ package com.oops;
 
 public class Complex {
 
-    private Real real;
-    private Imaginary imaginary;
+    private double real;
+    private double imaginary;
 
     public Complex(double real, double imaginary) {
-        this.real = new Real(real);
-        this.imaginary = new Imaginary(imaginary);
+
+        this.real = real;
+        this.imaginary = imaginary;
     }
 
     public double getReal() {
-        return real.getReal();
+
+        return real;
     }
 
     public double getImaginary() {
-        return imaginary.getImaginary();
+
+        return imaginary;
     }
 
-    public double setReal(double real) {
-        return this.real.setReal(real);
+    public void setReal(double real) {
+
+        this.real = real;
     }
 
-    public double setImaginary(double imaginary) {
-        return this.imaginary.setImaginary(imaginary);
+    public void setImaginary(double imaginary) {
+
+        this.imaginary = imaginary;
     }
 
     public double getMagnitude() {
-        return Math.sqrt(real.getReal() * real.getReal() + imaginary.getImaginary() * imaginary.getImaginary());
+
+        return Math.sqrt(this.getReal() * this.getReal() + this.getImaginary() * this.getImaginary());
     }
 
     public void add(Complex c) {
 
-        this.real.add(c.getReal());
-        this.imaginary.add(c.getImaginary());
+        this.real = this.getReal() + c.getReal();
+        this.imaginary = this.getImaginary() + c.getImaginary();
     }
 
     public void subtract(Complex c) {
 
-        this.real.subtract(c.getReal());
-        this.imaginary.subtract(c.getImaginary());
+        this.real = this.getReal() - c.getReal();
+        this.imaginary = this.getImaginary() - c.getImaginary();
     }
 
     public void multiply(Complex c) {
 
-        double real = this.real.getReal() * c.getReal() - this.imaginary.getImaginary() * c.getImaginary();
-        double imaginary = this.real.getReal() * c.getImaginary() + this.imaginary.getImaginary() * c.getReal();
-        this.real.setReal(real);
-        this.imaginary.setImaginary(imaginary);
+        double real = this.getReal() * c.getReal() - this.getImaginary() * c.getImaginary();
+        double imaginary = this.getReal() * c.getImaginary() + this.getImaginary() * c.getReal();
+
+        this.real = real;
+        this.imaginary = imaginary;
     }
 
     public void divide(Complex c) {
+
         double denominator = c.getReal() * c.getReal() + c.getImaginary() * c.getImaginary();
         if (denominator == 0) {
             throw new ArithmeticException("Division by zero is not allowed");
         }
 
-        double realPart = (this.real.getReal() * c.getReal() + this.imaginary.getImaginary() * c.getImaginary()) / denominator;
-        double imaginaryPart = (this.imaginary.getImaginary() * c.getReal() - this.real.getReal() * c.getImaginary()) / denominator;
+        double real = (this.getReal() * c.getReal() + this.getImaginary() * c.getImaginary()) / denominator;
+        double imaginary = (this.getImaginary() * c.getReal() - this.getReal() * c.getImaginary()) / denominator;
 
-        this.real.setReal(realPart);
-        this.imaginary.setImaginary(imaginaryPart);
+        this.setReal(real);
+        this.setImaginary(imaginary);
     }
-
 
     public void print() {
 
-        System.out.println(real.getReal() + " + " + imaginary.getImaginary() + "i");
+        System.out.println(this.getReal() + " + " + this.getImaginary() + "i");
     }
 }
