@@ -7,6 +7,6 @@ public class SimpleInterest extends Interest {
     }
 
     public float getFinalAmount() {
-        return (float) (Principal + (Principal * Rate * Period)/100);
+        return (float) (principal + (principal * rate * period)/100);
     }
 }

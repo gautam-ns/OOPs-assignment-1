@@ -7,6 +7,6 @@ public class CompoundInterest extends Interest {
     }
 
     public float getFinalAmount() {
-        return (float) ( Principal * Math.pow(1 + Rate, Period));
+        return (float) ( principal * Math.pow(1 + rate, period));
     }
 }

@@ -1,25 +1,25 @@
 package org.example;
 
 public abstract class Interest {
-    protected float Principal;
-    protected float Rate;
-    protected float Period;
+    protected float principal;
+    protected float rate;
+    protected float period;
 
     @Override
     public String toString() {
-        return "Principal: " + Principal + "\n Rate: " + Rate + "\n Period: " + Period;
+        return "Principal: " + principal + "\n Rate: " + rate + "\n Period: " + period;
     }
 
     protected Interest(float principal, float rate, float period) {
-        this.Principal = principal;
-        this.Rate = rate;
-        this.Period = period;
+        this.principal = principal;
+        this.rate = rate;
+        this.period = period;
     }
 
     protected Interest() {
-        this.Principal = 0;
-        this.Rate = 0;
-        this.Period = 0;
+        this.principal = 0;
+        this.rate = 0;
+        this.period = 0;
     }
 
     public static Interest createInterest(float principal, float rate, float period, char type) {
