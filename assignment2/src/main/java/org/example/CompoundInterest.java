@@ -2,7 +2,7 @@ package org.example;
 
 public class CompoundInterest extends Interest {
 
-    public CompoundInterest(float principal, float rate, float period) {
+    private CompoundInterest(float principal, float rate, float period) {
         super(principal, rate, period);
     }
 
